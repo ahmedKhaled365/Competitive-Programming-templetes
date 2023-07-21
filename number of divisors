@@ -1,0 +1,13 @@
+int numOfDivisors(int x) {
+    int to = 0;
+    for (int i = 1; i*i <= x; i++) {
+        if (x % i == 0) {
+            if (x / i == i) {
+                to++;
+            } else {
+                to += 2;
+            }
+        }
+    }
+    return to;
+}
