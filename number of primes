@@ -1,0 +1,22 @@
+    int numOfPrimes(int n) {
+        if (n < 2) {
+            return 0;
+        }
+        bool boolArr[n+1] ;
+        for (int i = 2; i < boolArr.size() / i; i++) {
+            if (boolArr[i]) {
+                continue;
+            }
+            for (int j = 2 * i; j < boolArr.size(); j += i) {
+                boolArr[j] = true;
+            }
+        }
+        int counter = 0;
+        for (int i = 0; i < boolArr.size(); i++) {
+            if (!boolArr[i]) {
+                counter++;
+            }
+        }
+        return counter;
+
+    }
