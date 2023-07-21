@@ -1,0 +1,22 @@
+//                              first one 0000011111
+
+ll bs(vector<ll> v,int c){
+    ll s=0, e=1e14;
+    while (s<e){
+        ll mid =s+(e-s)/2;
+        if(valid(mid,v)) e=mid;
+        else s=mid+1;
+    }
+    return s;
+}
+//                              last one 1111100000
+
+ll bs(vector<ll> v){
+    int s=0, e=v.size();
+    while (s<e) {
+        ll mid=s+(e-s+1)/2;
+        if (valid(mid,v)) s = mid;
+        else e = mid - 1;
+    }
+    return s;
+}
