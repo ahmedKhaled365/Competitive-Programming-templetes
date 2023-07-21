@@ -1,0 +1,19 @@
+void Dijkstra(int src, vector<vector<pair<int, int>>> adjList/* (node,cost)*/) {
+                    int n = adjList.size(); // number of nodes
+                    vector<int> dis(n, OO); //distance vector and at first all =OO
+                    dis[src] = 0; //dis to src =0
+                    priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> pq;
+                    pq.push({0, src}); //push the src
+                    while (!pq.empty()) { // the alg
+                        auto [nodeDis, node] = pq.top(); // get the best
+                        pq.pop();//remove it
+                        if (nodeDis != dis[node]) continue; // for unreal data
+                        for (auto [neighbor, weight] : adjList[node]) {
+                            if (dis[neighbor] > dis[node] + weight) {//add only if there is good dis
+                                dis[neighbor] = dis[node] + weight;
+                                dis[neighbor] = dis[node] + weight;
+                                pq.push({dis[neighbor] , neighbor});
+                            }
+                        }
+                    }
+                }
