@@ -1,0 +1,22 @@
+// adj to find neighbors fast using contains method
+                    vector<unordered_set<int>> adj(max_sz);
+
+
+                    //can set the color
+                    bool isSafe(int node, int color) {
+                        for (int neighbor: adj[node])
+                            if (nodeColor[neighbor] == color) return 0;
+
+                        return 1;
+                    }
+                     // coloring method
+                    void colorGraph(int node, int colors) {
+                        for (int color = 0; color < colors; ++color) {
+                            if (isSafe(node, color)) {
+                                nodeColor[node] = color;
+                                break;
+                            };
+                        }
+                        if (node + 1 < n) colorGraph(node + 1, colors);
+                    }
+
