@@ -1,0 +1,19 @@
+void Dijkstra(int src,vector<vector<pair<ll, ll>>> adjList) {
+                    int n = adjList.size();
+                    vector<ll> dis(n, OO);
+                    dis[src] = 0;
+                    set<pair<ll, int>> pq;
+                    pq.emplace(0,src);
+                    while (!pq.empty()) {
+                        auto[nodeDis, node] = *pq.begin();
+                        pq.erase(pq.begin());
+                        for (auto[neighbor, weight]: adjList[node]) {
+                            if (dis[neighbor] > dis[node] + weight) {
+                                pq.erase({dis[neighbor],neighbor});
+                                dis[neighbor] = dis[node] + weight;
+                                parent[neighbor]=node;
+                                pq.emplace(dis[neighbor], neighbor);
+                            }
+                        }
+                    }
+                }
