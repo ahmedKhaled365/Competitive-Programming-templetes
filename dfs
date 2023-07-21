@@ -1,0 +1,6 @@
+void dfs(int node) {
+    vis[node] = 1;
+    for (auto neighbor: adj[node])
+        if(!vis[neighbor])
+            dfs(neighbor);
+}
