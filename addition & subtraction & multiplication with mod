@@ -1,0 +1,14 @@
+############################### add ################################
+ll modSum(ll a, ll b, ll mod=1e9) {
+    a = (a % mod + mod) % mod, b = (b % mod + mod) % mod;
+    return (a + b) % mod;
+}
+
+###############################sub################################
+ll modSub(ll a, ll b,ll mod=1e9) {
+return modSum(a, -b,mod);
+}
+############################### multiplication ################################
+ll mult(ll a, ll b, ll mod=1e9) {
+return (1LL * a * b) % mod; 
+}
