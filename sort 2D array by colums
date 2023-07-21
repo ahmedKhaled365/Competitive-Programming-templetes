@@ -1,0 +1,6 @@
+    bool sortcol(const vector<int>& v1, const vector<int>& v2)
+    {
+        where i = column number
+        return v1[i] < v2[i];
+    }
+    sort(vect.begin(), vect.end(), sortcol);
