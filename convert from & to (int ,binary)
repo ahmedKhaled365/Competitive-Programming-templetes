@@ -1,13 +1,15 @@
 ################################# to binary #################################
-string toBinary(int num) {
-   return bitset<32>(num).to_string().substr(32 - log2(num)) ;
+string toBinary(ll num) {
+    return bitset<64>(num).to_string().substr(64 - log2(num+1));
 }
+ 
+
 ################################# to int   #################################
- int toInt(string s){
-     reverse(s.begin(), s.end());
-     int n=0;
-     for (int i = 31; i >=0 ; i--)
-         if(s[i]=='1')
-             n+=(1<<i);
-     return n;
- }
+ll toInt(string s) {
+    reverse(s.begin(), s.end());
+    ll n = 0;
+    for (int i = s.length()-1; i >= 0; i--)
+        if (s[i] == '1')
+            n += (1ll << i);
+    return n;
+}
